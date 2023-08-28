@@ -1,6 +1,6 @@
 FROM golang:latest as builder
 WORKDIR /go-http-hello-world/
-RUN go install -v golang.org/x/net/html 
+RUN go install golang.org/x/net/html@latest 
 ADD https://raw.githubusercontent.com/geetarista/go-http-hello-world/master/hello_world/hello_world.go ./hello_world.go
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
 
